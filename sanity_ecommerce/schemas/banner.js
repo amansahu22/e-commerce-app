@@ -33,7 +33,7 @@ export default {
     },
     {
       name: "midText",
-      title: "Midtext",
+      title: "MidText",
       type: "string",
     },
     {
