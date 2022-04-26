@@ -11,10 +11,15 @@ import { Product } from "../../components";
 import { useCartContext } from "../../context/cart-context";
 
 const ProductDetails = ({ productData, similarProducts }) => {
-  const { qty, increaseQuantity, decreaseQuantity, addToCart } =
+  const { qty, increaseQuantity, decreaseQuantity, addToCart, handleShowCart } =
     useCartContext();
   const [index, setIndex] = useState(0);
   const { image, name, details, price } = productData;
+
+  const handleBuyNow = () => {
+    addToCart(productData, qty);
+    handleShowCart();
+  };
 
   return (
     <div>
@@ -78,11 +83,7 @@ const ProductDetails = ({ productData, similarProducts }) => {
             >
               Add to cart
             </button>
-            <button
-              type="button"
-              className="buy-now"
-              onClick={() => console.log("coming soon")}
-            >
+            <button type="button" className="buy-now" onClick={handleBuyNow}>
               Buy Now
             </button>
           </div>
