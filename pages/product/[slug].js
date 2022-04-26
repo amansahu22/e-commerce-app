@@ -78,7 +78,11 @@ const ProductDetails = ({ productData, similarProducts }) => {
             >
               Add to cart
             </button>
-            <button type="button" className="buy-now" onClick="">
+            <button
+              type="button"
+              className="buy-now"
+              onClick={() => console.log("coming soon")}
+            >
               Buy Now
             </button>
           </div>

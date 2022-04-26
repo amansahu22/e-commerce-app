@@ -1,3 +1,5 @@
+import { initialState } from "./cart-context";
+
 export const reducer = (state, action) => {
   let foundProduct = {};
   let index;
@@ -122,6 +124,12 @@ export const reducer = (state, action) => {
         totalPrice: state.totalPrice - foundProduct.price,
       };
     }
+  }
+
+  if (action.type === "SET_TO_DEFAULT") {
+    return {
+      ...initialState,
+    };
   }
 
   throw new Error("This action is not defined");

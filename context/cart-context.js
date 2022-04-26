@@ -2,7 +2,7 @@ import React, { useReducer, useContext, useEffect } from "react";
 import { reducer } from "./reducer";
 import { toast } from "react-hot-toast";
 
-const initialState = {
+export const initialState = {
   showCart: false,
   cartItems: [],
   totalPrice: 0,
@@ -23,6 +23,7 @@ const CartContext = React.createContext({
   handleHideCart: () => {},
   deleteCartProduct: () => {},
   updateCartItemQuantity: () => {},
+  setToDefault: () => {},
 });
 
 export const CartContextProvider = (props) => {
@@ -88,6 +89,10 @@ export const CartContextProvider = (props) => {
     });
   };
 
+  const setToDefault = () => {
+    dispatch({ type: "SET_TO_DEFAULT" });
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -99,6 +104,7 @@ export const CartContextProvider = (props) => {
         handleShowCart,
         deleteCartProduct,
         updateCartItemQuantity,
+        setToDefault,
       }}
     >
       {props.children}
